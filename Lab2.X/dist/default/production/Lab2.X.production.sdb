@@ -3,6 +3,8 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 0 ]
+"14 C:\Users\jxica\Google Drive\Septimo Semestre\Digital 2\Laboratorio 2\Lab-2\Lab2.X\ADC.c
+[v _ADC_conf ADC_conf `(v  1 e 1 0 ]
 "5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 [v i1___awdiv __awdiv `(i  1 e 2 0 ]
@@ -14,9 +16,9 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"34 C:\Users\jxica\Google Drive\Septimo Semestre\Digital 2\Laboratorio 2\Lab-2\Lab2.X\Lab2.c
+"35 C:\Users\jxica\Google Drive\Septimo Semestre\Digital 2\Laboratorio 2\Lab-2\Lab2.X\Lab2.c
 [v _ISR ISR `II(v  1 e 1 0 ]
-"78
+"79
 [v _main main `(v  1 e 1 0 ]
 "59 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
@@ -40,7 +42,7 @@
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
 "352
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S277 . 1 `uc 1 RD0 1 0 :1:0 
+[s S202 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -50,8 +52,8 @@
 `uc 1 RD7 1 0 :1:7 
 ]
 "369
-[u S286 . 1 `S277 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES286  1 e 1 @8 ]
+[u S211 . 1 `S202 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES211  1 e 1 @8 ]
 "459
 [v _INTCON INTCON `VEuc  1 e 1 @11 ]
 [s S22 . 1 `uc 1 RBIF 1 0 :1:0 
@@ -84,13 +86,13 @@
 [v _PIR1bits PIR1bits `VES83  1 e 1 @12 ]
 "1238
 [v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
-[s S162 . 1 `uc 1 ADON 1 0 :1:0 
+[s S229 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 `uc 1 ADCS 1 0 :2:6 
 ]
 "1276
-[s S167 . 1 `uc 1 . 1 0 :1:0 
+[s S234 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -99,17 +101,17 @@
 `uc 1 ADCS0 1 0 :1:6 
 `uc 1 ADCS1 1 0 :1:7 
 ]
-[s S176 . 1 `uc 1 . 1 0 :1:0 
+[s S243 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S179 . 1 `uc 1 . 1 0 :1:0 
+[s S246 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[u S182 . 1 `S162 1 . 1 0 `S167 1 . 1 0 `S176 1 . 1 0 `S179 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES182  1 e 1 @31 ]
+[u S249 . 1 `S229 1 . 1 0 `S234 1 . 1 0 `S243 1 . 1 0 `S246 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES249  1 e 1 @31 ]
 "1346
 [v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
-[s S225 . 1 `uc 1 PS 1 0 :3:0 
+[s S150 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -117,12 +119,12 @@
 `uc 1 nRBPU 1 0 :1:7 
 ]
 "1366
-[s S232 . 1 `uc 1 PS0 1 0 :1:0 
+[s S157 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 ]
-[u S236 . 1 `S225 1 . 1 0 `S232 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES236  1 e 1 @129 ]
+[u S161 . 1 `S150 1 . 1 0 `S157 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES161  1 e 1 @129 ]
 "1416
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 [s S116 . 1 `uc 1 TRISB0 1 0 :1:0 
@@ -141,7 +143,7 @@
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
-[s S143 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S353 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -150,12 +152,12 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S151 . 1 `S143 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES151  1 e 1 @140 ]
-[s S251 . 1 `uc 1 IOCB 1 0 :8:0 
+[u S361 . 1 `S353 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES361  1 e 1 @140 ]
+[s S176 . 1 `uc 1 IOCB 1 0 :8:0 
 ]
 "2436
-[s S253 . 1 `uc 1 IOCB0 1 0 :1:0 
+[s S178 . 1 `uc 1 IOCB0 1 0 :1:0 
 `uc 1 IOCB1 1 0 :1:1 
 `uc 1 IOCB2 1 0 :1:2 
 `uc 1 IOCB3 1 0 :1:3 
@@ -164,17 +166,17 @@
 `uc 1 IOCB6 1 0 :1:6 
 `uc 1 IOCB7 1 0 :1:7 
 ]
-[u S262 . 1 `S251 1 . 1 0 `S253 1 . 1 0 ]
-[v _IOCBbits IOCBbits `VES262  1 e 1 @150 ]
-[s S208 . 1 `uc 1 . 1 0 :4:0 
+[u S187 . 1 `S176 1 . 1 0 `S178 1 . 1 0 ]
+[v _IOCBbits IOCBbits `VES187  1 e 1 @150 ]
+[s S409 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 VCFG0 1 0 :1:4 
 `uc 1 VCFG1 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "2991
-[u S214 . 1 `S208 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES214  1 e 1 @159 ]
+[u S415 . 1 `S409 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES415  1 e 1 @159 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
@@ -189,22 +191,22 @@
 "3464
 [u S105 . 1 `S98 1 . 1 0 ]
 [v _ANSELHbits ANSELHbits `VES105  1 e 1 @393 ]
-"24 C:\Users\jxica\Google Drive\Septimo Semestre\Digital 2\Laboratorio 2\Lab-2\Lab2.X\Lab2.c
+"25 C:\Users\jxica\Google Drive\Septimo Semestre\Digital 2\Laboratorio 2\Lab-2\Lab2.X\Lab2.c
 [v _i i `uc  1 e 1 0 ]
-"28
-[v _alarma alarma `uc  1 e 1 0 ]
 "29
-[v _change change `uc  1 e 1 0 ]
+[v _alarma alarma `uc  1 e 1 0 ]
 "30
-[v _display2 display2 `[16]i  1 e 32 0 ]
+[v _change change `uc  1 e 1 0 ]
 "31
-[v _d1 d1 `i  1 e 2 0 ]
+[v _display2 display2 `[16]i  1 e 32 0 ]
 "32
+[v _d1 d1 `i  1 e 2 0 ]
+"33
 [v _d2 d2 `i  1 e 2 0 ]
-"78
+"79
 [v _main main `(v  1 e 1 0 ]
 {
-"163
+"168
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
@@ -219,10 +221,18 @@
 [v ___awdiv@dividend dividend `i  1 p 2 8 ]
 "41
 } 0
-"34 C:\Users\jxica\Google Drive\Septimo Semestre\Digital 2\Laboratorio 2\Lab-2\Lab2.X\Lab2.c
+"14 C:\Users\jxica\Google Drive\Septimo Semestre\Digital 2\Laboratorio 2\Lab-2\Lab2.X\ADC.c
+[v _ADC_conf ADC_conf `(v  1 e 1 0 ]
+{
+[v ADC_conf@ADCNum ADCNum `uc  1 a 1 wreg ]
+[v ADC_conf@ADCNum ADCNum `uc  1 a 1 wreg ]
+[v ADC_conf@ADCNum ADCNum `uc  1 a 1 8 ]
+"40
+} 0
+"35 C:\Users\jxica\Google Drive\Septimo Semestre\Digital 2\Laboratorio 2\Lab-2\Lab2.X\Lab2.c
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"77
+"78
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
 [v i1___awdiv __awdiv `(i  1 e 2 0 ]

@@ -18,6 +18,7 @@
 
 #include <xc.h>
 #include <stdint.h> //incluimos 
+#include "ADC.h"
 #define _XTAL_FREQ 4000000
 
 int contador;
@@ -76,6 +77,7 @@ void __interrupt() ISR(void){
     
 }
 void main(void) {
+
 ANSEL=0;
 ANSELH=0;
 ANSELHbits.ANS8 =1;//Entrada analogica RB2
@@ -92,6 +94,8 @@ PORTA=0;
 PORTC=0;
 PORTD=0;
 
+ADC_conf(0);
+/*
 //Encender interrupcion ADC
 PIE1bits.ADIE=1;
 PIR1bits.ADIF=1;
@@ -110,6 +114,7 @@ ADCON1bits.ADFM=0;
 //Refencia VSS y VDD
 ADCON1bits.VCFG0=0;
 ADCON1bits.VCFG1=0;
+*/
 
 //Configuracion INT PORTB on change 
 INTCON=0;
