@@ -2655,70 +2655,52 @@ int valorold;
 int valorold2;
 int var;
 uint8_t alarma;
-int display[9] = {0b00000000,
-                   0b00000001,
-                   0b00000011,
-                   0b00000111,
-                   0b00001111,
-                   0b00011111,
-                   0b00111111,
-                   0b01111111,
-                   0b11111111,
-                   };
-
-int display2[11] ={0b0111111,
-                   0b0000110,
-                   0b1011011,
-                   0b1001111,
-                   0b1100110,
-                   0b1101101,
-                   0b1111101,
-                   0b0000111,
-                   0b1111111,
-                   0b1101111,
-                   0b1110111,
-                   };
+char change=0;
+int display2[16] ={0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F, 0x77, 0x7C, 0X39, 0X5E, 0X79, 0X71};
+int d1;
+int d2;
 
 void __attribute__((picinterrupt(("")))) ISR(void){
 
-    if (INTCONbits.RBIF==1){
-        if(PORTBbits.RB7==1){
-            INTCONbits.GIE=0;
-            INTCONbits.RBIE=0;
-            i++;
-            INTCONbits.GIE=1;
-            INTCONbits.RBIE=1;
-            INTCONbits.RBIF=0;
-        }
-        if(PORTBbits.RB6==1){
-            INTCONbits.GIE=0;
-            INTCONbits.RBIE=0;
-            i--;
-            INTCONbits.GIE=1;
-            INTCONbits.RBIE=1;
-            INTCONbits.RBIF=0;
-        }
-    INTCONbits.RBIF=0;
-    alarma=ADRESH;
-    }
 
+    INTCONbits.T0IE=0;
+
+    if(PORTBbits.RB7==1 && INTCONbits.RBIF==1){
+        INTCONbits.GIE=0;
+        INTCONbits.RBIE=0;
+        i++;
+        INTCONbits.GIE=1;
+        INTCONbits.RBIE=1;
+        INTCONbits.RBIF=0;
+    }
+    if(PORTBbits.RB6==1 && INTCONbits.RBIF==1){
+        INTCONbits.GIE=0;
+        INTCONbits.RBIE=0;
+        i--;
+        INTCONbits.GIE=1;
+        INTCONbits.RBIE=1;
+        INTCONbits.RBIF=0;
+    }
 
     if (PIR1bits.ADIF==1){
         INTCONbits.GIE=0;
         INTCONbits.RBIE=0;
-        PORTA=ADRESH;
+
+        d1 = display2[ADRESH/16];
+        d2 =display2[ADRESH%16];
         alarma=ADRESH;
-        INTCONbits.GIE=1;
-        INTCONbits.RBIE=1;
-        PIR1bits.ADIF=0;
+
     }
 
-    if (TMR0IF){
+    if(INTCONbits.T0IF == 1){
+        TMR0 = 200;
+        change = 1;
 
-        TMR0IF = 0;
-        TMR0 = 4;
-        contador++;
     }
+
+    INTCONbits.T0IE=1;
+    INTCONbits.T0IF=0;
+    PIR1bits.ADIF=0;
 
 
 }
@@ -2726,14 +2708,13 @@ void main(void) {
 ANSEL=0;
 ANSELH=0;
 ANSELHbits.ANS8 =1;
+
 TRISA=0;
 TRISBbits.TRISB2=1;
 TRISBbits.TRISB7=1;
 TRISBbits.TRISB6=1;
 TRISD=0;
-TRISDbits.TRISD2=0;
 TRISC=0;
-
 
 PORTB=0;
 PORTA=0;
@@ -2764,6 +2745,17 @@ INTCON=0;
 INTCONbits.GIE=1;
 INTCONbits.RBIE=1;
 INTCONbits.RBIF=0;
+
+INTCONbits.T0IE=1;
+INTCONbits.T0IF=0;
+
+OPTION_REG=0;
+OPTION_REGbits.PS0=0;
+OPTION_REGbits.PS1=0;
+OPTION_REGbits.PS2=1;
+
+TMR0=200;
+
 IOCBbits.IOCB7=1;
 IOCBbits.IOCB6=1;
 i=0;
@@ -2771,17 +2763,30 @@ i=0;
 while(1){
     if (alarma > i){
         PORTDbits.RD2=1;
-        _delay((unsigned long)((100)*(4000000/4000.0)));
     }
     else{
         PORTDbits.RD2=0;
     }
-    PORTC=i;
     _delay((unsigned long)((10)*(4000000/4000.0)));
     ADCON0bits.GO_DONE=1;
     _delay((unsigned long)((10)*(4000000/4000.0)));
+    if (change == 1){
+        if(PORTDbits.RD1==1){
+            PORTDbits.RD0=0;
+            PORTDbits.RD1=0;
+            PORTC=display2[ADRESH/16];
+            PORTDbits.RD0=1;
+            }
+        else{
+            PORTDbits.RD0=0;
+            PORTDbits.RD1=0;
+            PORTC=display2[ADRESH%16];
+            PORTDbits.RD1=1;
+        }
+        change=0;
+    }
+    PORTA=i;
 
-    PORTA=ADRESH;
     }
     return;
 }
